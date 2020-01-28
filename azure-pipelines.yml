@@ -5,6 +5,11 @@
 
 trigger:
 - master
+- task: synopsys-coverity@1
+  inputs:
+    coverityBuildDirectory: '$(Build.Repository.LocalPath)'
+    coverityRunType: 'custom'
+    customCoverityCommands: 'cov-configure --java'
 
 pool:
   vmImage: 'ubuntu-latest'
